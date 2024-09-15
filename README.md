@@ -9,7 +9,7 @@ A souvenir making workshop needs an inventory system to keep track of materials 
 - Finished Products: Categorized into Cups, Coasters, Keychains, Medals, etc.
 
 # Class Diagram
-![picture](x.jpg)
+![ClassDiagram](ClassDiagram.png)
 
 
 
