@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class Part {
   private String partNumber;
   private String partDescription;
@@ -35,5 +37,17 @@ public abstract class Part {
   public void displayDetails() {
     System.out.println("PART NUMBER:             " + getPartNumber());
     System.out.println("PART DESCRIPTION:        " + getPartDescription());
+  }
+
+  public void edit() {
+      @SuppressWarnings("resource")
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("EDIT PART NUMBER: ");
+      String newPartNumber = scanner.nextLine();
+      this.partNumber = newPartNumber;
+
+      System.out.println("EDIT PART DESCRIPTION: ");
+      String newPartDescription = scanner.nextLine();
+      this.partDescription = newPartDescription;
   }
 }
