@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 // Inherit from parent class
 public class FinishedProduct extends Part {
     private String productCategory;
@@ -51,8 +53,26 @@ public class FinishedProduct extends Part {
     public void displayDetails() {
         super.displayDetails();
         System.out.println("PRODUCT CATEGORY:        " + getProductCategory());
-        System.out.println("SELLING PRICE:           $" + getSellingPrice());
+        System.out.println("SELLING PRICE/EA:        $" + getSellingPrice());
         System.out.println("STOCK(EA):               " + getStockQuantity());
         System.out.println("-".repeat(80));
     }
+
+    @Override
+    public void edit() {
+        super.edit();
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("EDIT PRODUCT CATEGORY(Cup,Coaster,Keychain,Medal,etc.): ");
+        String productCategory = scanner.nextLine();
+        this.productCategory = productCategory;
+
+        System.out.println("EDIT SELLING PRICE/EA: $");
+        double sellingPrice = scanner.nextDouble();
+        this.sellingPrice = sellingPrice;
+
+        System.out.println("EDIT STOCK(EA): ");
+        int stockQuantity = scanner.nextInt();
+        this.stockQuantity = stockQuantity;
+        }
 }
