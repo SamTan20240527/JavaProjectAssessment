@@ -1,7 +1,7 @@
 # Project Assessment
 Module 6: Java Programming for Developers \
 Submitted by: Tan Chee Meng (Sam Tan) \
-Date: 16-Sep-2024
+Date: 16-Sep-2024 \
 GitHub link: https://github.com/SamTan20240527/JavaProjectAssessment 
 
 # Introduction
