@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-  private static List<Part> partList = new ArrayList<>();
+  private static ArrayList<Part> partList = new ArrayList<>();
   private static Scanner scanner;
 
   // CRUD
@@ -16,6 +15,8 @@ public class Main {
       } else if (choice == 2) {
         displayParts();
       } else if (choice == 3) {
+        editPart(partList);
+      } else if (choice == 4) {
         System.out.print("DELETE PART FROM INDEX: ");
         int index = scanner.nextInt();
         if (index >= 0 && index < partList.size()) {
@@ -24,7 +25,7 @@ public class Main {
         } else {
           System.out.println(">".repeat(10) + "Invalid Index" + "<".repeat(10));
         }
-      } else if (choice == 4) {
+      } else if (choice == 5) {
         break;
       }
     } while (true);
@@ -38,12 +39,13 @@ public class Main {
       System.out.println("=".repeat(35));
       System.out.println("(1)ADD NEW PART");
       System.out.println("(2)LIST ALL PARTS");
-      System.out.println("(3)DELETE PART");
-      System.out.println("(4)EXIT");
+      System.out.println("(3)EDIT PART");
+      System.out.println("(4)DELETE PART");
+      System.out.println("(5)EXIT");
       System.out.print("SELECT OPTION: ");
       option = scanner.nextInt();
       scanner.nextLine();
-      if (option >= 1 && option <= 4) {
+      if (option >= 1 && option <= 5) {
         break;
       }
     }
@@ -104,5 +106,17 @@ public class Main {
       System.out.println("PART INDEX: " + i + "-".repeat(67));
       p.displayDetails();
     }
+  }
+
+  public static void editPart(ArrayList<Part> partList) {
+    for (int i = 0; i < partList.size(); i++) {
+      System.out.println(i + ": " + partList.get(i).getPartNumber());
+    }
+    @SuppressWarnings("resource")
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("PART INDEX TO EDIT: ");
+    int partIndex = scanner.nextInt();
+    Part partToEdit = partList.get(partIndex);
+    partToEdit.edit();
   }
 }
