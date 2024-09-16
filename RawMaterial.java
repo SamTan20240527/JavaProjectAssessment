@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 // Inherit from parent class
 public class RawMaterial extends Part {
   private String materialClassification;
@@ -51,8 +53,26 @@ public class RawMaterial extends Part {
   public void displayDetails() {
     super.displayDetails();
     System.out.println("MATERIAL CLASSIFICATION: " + getMaterialClassification());
-    System.out.println("PURCHASE UNIT COST:      $" + getPurchaseCost());
+    System.out.println("PURCHASE COST/KG:        $" + getPurchaseCost());
     System.out.println("STOCK(KG):               " + getStockKg());
     System.out.println("-".repeat(80));
+  }
+
+  @Override
+  public void edit() {
+      super.edit();
+      @SuppressWarnings("resource")
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("EDIT MATERIAL CLASSIFICATION(Ceramic,Metal,Polymer,Other): ");
+      String newMaterialClassification = scanner.nextLine();
+      this.materialClassification = newMaterialClassification;
+
+      System.out.println("EDIT PURCHASE COST/KG: $");
+      double newPurchaseCost = scanner.nextDouble();
+      this.purchaseCost = newPurchaseCost;
+
+      System.out.println("EDIT STOCK(KG): ");
+      double newStockKg = scanner.nextDouble();
+      this.stockKg = newStockKg;
   }
 }
